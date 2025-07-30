@@ -1,0 +1,54 @@
+# 🎯 Git 무시할 파일들
+
+# Node.js 의존성
+node_modules/
+
+# 테스트 결과물
+jest-coverage/
+jest-reports/
+coverage/
+*.lcov
+
+# TypeScript 컴파일 결과물
+dist/
+build/
+
+# 환경변수 파일 (민감한 정보 포함 가능)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# 로그 파일
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS 시스템 파일
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE 설정 파일
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 임시 파일
+temp/
+tmp/
+*.tmp
+*.temp
+
+# 백업 파일
+*.bak
+*.backup

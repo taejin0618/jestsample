@@ -1,0 +1,40 @@
+{
+  "name": "axios-jest-testing",
+  "version": "1.0.0",
+  "description": "개발팀을 위한 Axios + Jest 테스트 환경",
+  "main": "index.js",
+  "scripts": {
+    "test:jest": "jest",
+    "test:jest-examples": "jest tests/jest-examples/",
+    "jest:watch": "jest --watch",
+    "jest:coverage": "jest --coverage",
+    "jest:report": "jest && echo '📊 Jest 리포트가 생성되었습니다!' && echo '📂 HTML 리포트: jest-reports/report.html' && echo '📊 커버리지 리포트: jest-coverage/index.html'",
+    "setup": "npm install && npm run setup:env",
+    "setup:env": "node -e \"const {createEnvFile} = require('./tests/helpers/env-validator'); createEnvFile();\"",
+    "validate:env": "node -e \"const {validateEnvironment} = require('./tests/helpers/env-validator'); validateEnvironment();\""
+  },
+  "keywords": [
+    "axios",
+    "jest",
+    "testing",
+    "automation",
+    "beginner-friendly"
+  ],
+  "author": "테스트 자동화 프로젝트",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "dotenv": "^16.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.19.9",
+    "jest": "^30.0.5",
+    "jest-html-reporters": "^3.1.7",
+    "typescript": "^5.6.3",
+    "ts-jest": "^29.2.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    // 🎯 TypeScript 기본 설정
+    "target": "ES2020", // ES2020 문법 사용
+    "module": "commonjs", // CommonJS 모듈 사용 (Node.js)
+    "lib": ["ES2020"], // ES2020 라이브러리 사용
+    "allowJs": true, // JavaScript 파일도 허용
+    "checkJs": false, // JS 파일 타입 체크 안함
+
+    // 📂 파일 경로 설정
+    "rootDir": "./", // 루트 디렉토리
+    "outDir": "./dist", // 컴파일된 파일 출력 위치
+    "baseUrl": "./", // 상대 경로 기준점
+    "paths": {
+      "@tests/*": ["tests/*"], // @tests로 tests 폴더 접근
+      "@helpers/*": ["tests/helpers/*"] // @helpers로 헬퍼 폴더 접근
+    },
+
+    // 🔍 타입 체크 설정
+    "strict": false, // 엄격 모드 비활성화 (초보자 친화적)
+    "noImplicitAny": false, // any 타입 허용
+    "strictNullChecks": false, // null/undefined 체크 완화
+    "noImplicitReturns": false, // 리턴 타입 체크 완화
+    "noFallthroughCasesInSwitch": false, // switch 문 체크 완화
+
+    // 🛠️ 컴파일 옵션
+    "declaration": false, // .d.ts 파일 생성 안함
+    "sourceMap": true, // 소스맵 생성 (디버깅용)
+    "removeComments": false, // 주석 유지
+    "skipLibCheck": true, // 라이브러리 타입 체크 스킵
+    "forceConsistentCasingInFileNames": true, // 파일명 대소문자 일치 강제
+
+    // 🔄 모듈 해석
+    "moduleResolution": "node", // Node.js 방식 모듈 해석
+    "allowSyntheticDefaultImports": true, // default import 허용
+    "esModuleInterop": true, // ES 모듈 호환성
+
+    // 🎯 실험적 기능
+    "experimentalDecorators": true, // 데코레이터 허용
+    "emitDecoratorMetadata": true, // 메타데이터 생성
+
+    // 📋 기타 설정
+    "resolveJsonModule": true, // JSON 파일 import 허용
+    "typeRoots": ["./node_modules/@types"], // 타입 정의 위치
+    "types": ["jest", "node"] // 명시적 타입 지정 (axios 내장 타입 사용)
+  },
+
+  // 📁 포함할 파일들
+  "include": [
+    "tests/**/*", // tests 폴더 모든 파일
+    "*.ts", // 루트의 .ts 파일들
+    "*.js" // 루트의 .js 파일들
+  ],
+
+  // 🚫 제외할 파일들
+  "exclude": [
+    "node_modules", // node_modules 제외
+    "dist", // 컴파일 결과물 제외
+    "jest-coverage", // 커버리지 리포트 제외
+    "jest-reports" // 테스트 리포트 제외
+  ],
+
+  // 🔧 ts-jest 설정
+  "ts-jest": {
+    "useESM": false, // CommonJS 사용
+    "isolatedModules": false // 모듈 분리 비활성화
+  }
+}

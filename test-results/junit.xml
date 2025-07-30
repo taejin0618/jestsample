@@ -1,0 +1,66 @@
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="0.402433">
+<testsuite name="examples/simple-edumanager-playwright.test.ts" timestamp="2025-07-29T04:02:17.496Z" hostname="chromium" tests="1" failures="1" skipped="0" time="0.127" errors="0">
+<testcase name="edumanager API 플로우 › 로그인 → 여정 생성 플로우" classname="examples/simple-edumanager-playwright.test.ts" time="0.127">
+<failure message="simple-edumanager-playwright.test.ts:12:7 로그인 → 여정 생성 플로우" type="FAILURE">
+<![CDATA[  [chromium] › examples/simple-edumanager-playwright.test.ts:12:7 › edumanager API 플로우 › 로그인 → 여정 생성 플로우 
+
+    TypeError: apiRequestContext.post: Invalid character in header content ["Authorization"]
+
+      48 |     console.log('\n📚 여정 생성...');
+      49 |     
+    > 50 |     const journeyResponse = await request.post('https://te-edumanager.hunet.co.kr//rest/lm/external/journey', {
+         |                                           ^
+      51 |       headers: {
+      52 |         'accept': 'application/json',
+      53 |         'Content-Type': 'application/json',
+        at /Users/user/Documents/automation/ex/tests/examples/simple-edumanager-playwright.test.ts:50:43
+]]>
+</failure>
+<system-out>
+<![CDATA[🔐 edumanager 로그인...
+✅ 로그인 응답 상태: [33m200[39m
+📄 로그인 응답 데이터: {
+  "success": true,
+  "message": "",
+  "result": {
+    "imsAccessToken": "6ECI/1sKX2mh1YlIL2Ip0CSp4fCuc9CSZHXW+IJbOefEqE7da6o00I21OS8QGH1va3MqVtevYh70shl+VDNLzNSh3o9lO4JmqFzmAtqx2buItB5RmbKsGCRd6Rh1drC0Tsy0IYUPJxogQQBXjH5T3TpWRdYPkc00PLI0qLg6HP0HhWe1Pk3dO7D1fb+Wyt+j2DiRvMXAumXGS/7dIVQ3SdGcHOXjmFLk6+A8mFPL3SkKXNKpTmams8nAO1nCkY5tEgkkYv2Ev+eKa27lCsoLZGQZdZHHhECmoHydPXpsdGpfRGRKF8k48LU2SIuYLRj9r0dkpWUKM08OocOF/AJK5g6eJb7a30cW7Pahh+7ipOsKzxZRYkrl0n+5ulkju75J5b8uIdn9t65RsiSZH1yU8z/NGH60itQXjD8nyrYmrqc=",
+    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyMTQtODYtMzgzNTYiLCJwYXNzd29yZCI6IjIxNjIiLCJtYW5hZ2VySWQiOiJodW5ldDIwMjIwNDYiLCJjb21wYW55U2VxIjoiMjE2MiIsImFmZmlsaWF0ZWRDb21wYW55U2VxIjoiMCIsInVzZXJUeXBlIjoiMiIsIm5iZiI6MTc1Mzc2MTY3MiwiZXhwIjoxNzU0MzY2NDcyLCJpYXQiOjE3NTM3NjE2NzJ9.Eo16dCanrT2ZssR407VUdeQGIqxAT6eK_ahAnULzb9VA4C2dudGgztpp8hJ1-sfBHfnpcJXKdWcArXTxKHrQIA",
+    "isLogin": true,
+    "userId": "214-86-38356",
+    "message": null,
+    "userInfo": {
+      "company_seq": 2162,
+      "affiliated_company_seq": 0,
+      "business_company_nm": "휴넷(자체)",
+      "category_process_use_yn": "Y",
+      "standard_company_seq": 18417,
+      "user_id": "214-86-38356",
+      "user_nm": "휴넷(자체)",
+      "email_nm": "happyhunetian@hunet.co.kr",
+      "first_study_yn": "N",
+      "score_use_yn": null,
+      "edu_system_yn": "N",
+      "IsAdmin": true,
+      "user_password": "2162",
+      "unit_cd": "",
+      "parent_unit_cd": "",
+      "unit_nm": "",
+      "parent_unit_nm": "",
+      "beforUserId": null,
+      "beforPassword": null,
+      "process_open_admin": "N",
+      "guid": "54731246-a5e5-4286-88f8-7b3a8cb32164",
+      "UseSessionTimeOut": false,
+      "ManagerRole": 2,
+      "ManagerId": "hunet2022046"
+    }
+  },
+  "resultTotalcount": 0
+}
+
+📚 여정 생성...
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
