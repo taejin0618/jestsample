@@ -7,10 +7,10 @@
  * 🚀 실행: npx jest tests/jest-examples/pure-axios.test.ts
  */
 
-import axios from 'axios';
+import axios from "axios";
 
 describe("🎯 순수 axios 호출 테스트", () => {
-  test("axios만으로 API 호출하고 응답 확인하기", async () => {
+  test("axios만으로 API 호출하고 확인하기", async () => {
     console.log("🚀 순수 axios 테스트 시작!");
     console.log("=".repeat(50));
 
@@ -28,15 +28,15 @@ describe("🎯 순수 axios 호출 테스트", () => {
       console.log("📊 상태 코드:", 응답.status);
       console.log("📊 상태 텍스트:", 응답.statusText);
 
-      // 4단계: 응답 헤더 확인  
+      // 4단계: 응답 헤더 확인
       console.log("\n📋 응답 헤더:");
-      console.log("Content-Type:", 응답.headers['content-type']);
-      console.log("Date:", 응답.headers['date']);
+      console.log("Content-Type:", 응답.headers["content-type"]);
+      console.log("Date:", 응답.headers["date"]);
 
       // 5단계: 응답 데이터 확인
       console.log("\n👤 사용자 정보:");
       console.log("ID:", 응답.data.id);
-      console.log("이름:", 응답.data.name); 
+      console.log("이름:", 응답.data.name);
       console.log("사용자명:", 응답.data.username);
       console.log("이메일:", 응답.data.email);
       console.log("전화번호:", 응답.data.phone);
@@ -58,11 +58,10 @@ describe("🎯 순수 axios 호출 테스트", () => {
       console.log(JSON.stringify(응답.data, null, 2));
 
       console.log("\n🎉 순수 axios 테스트 완료!");
-
     } catch (에러) {
       console.log("\n❌ 에러 발생:");
       console.log("에러 메시지:", 에러.message);
-      
+
       if (에러.response) {
         console.log("서버 응답 상태:", 에러.response.status);
         console.log("서버 응답 데이터:", 에러.response.data);
@@ -83,7 +82,7 @@ describe("🎯 순수 axios 호출 테스트", () => {
       name: "김철수",
       username: "kimcs",
       email: "kimcs@example.com",
-      phone: "010-1234-5678"
+      phone: "010-1234-5678",
     };
 
     const 주소 = "https://jsonplaceholder.typicode.com/users";
@@ -97,14 +96,13 @@ describe("🎯 순수 axios 호출 테스트", () => {
 
       console.log("\n✅ POST 요청 성공!");
       console.log("📊 상태 코드:", 응답.status, "(201 Created)");
-      
+
       console.log("\n👤 생성된 사용자 정보:");
       console.log("ID:", 응답.data.id);
       console.log("이름:", 응답.data.name);
       console.log("이메일:", 응답.data.email);
 
       console.log("\n🎉 POST 요청 테스트 완료!");
-
     } catch (에러) {
       console.log("\n❌ POST 요청 에러:");
       console.log("에러 메시지:", 에러.message);
@@ -118,19 +116,25 @@ describe("🎯 순수 axios 호출 테스트", () => {
     try {
       // 1단계: 사용자 목록 가져오기
       console.log("1️⃣ 사용자 목록 가져오기...");
-      const 사용자목록 = await axios.get("https://jsonplaceholder.typicode.com/users");
+      const 사용자목록 = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
       console.log(`✅ 총 ${사용자목록.data.length}명의 사용자 발견`);
 
       // 2단계: 첫 번째 사용자의 게시글 가져오기
       const 첫번째사용자ID = 사용자목록.data[0].id;
       console.log(`\n2️⃣ 사용자 ${첫번째사용자ID}번의 게시글 가져오기...`);
-      const 게시글목록 = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${첫번째사용자ID}`);
+      const 게시글목록 = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts?userId=${첫번째사용자ID}`
+      );
       console.log(`✅ 총 ${게시글목록.data.length}개의 게시글 발견`);
 
       // 3단계: 첫 번째 게시글의 댓글 가져오기
       const 첫번째게시글ID = 게시글목록.data[0].id;
       console.log(`\n3️⃣ 게시글 ${첫번째게시글ID}번의 댓글 가져오기...`);
-      const 댓글목록 = await axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${첫번째게시글ID}`);
+      const 댓글목록 = await axios.get(
+        `https://jsonplaceholder.typicode.com/comments?postId=${첫번째게시글ID}`
+      );
       console.log(`✅ 총 ${댓글목록.data.length}개의 댓글 발견`);
 
       // 4단계: 결과 요약
@@ -140,7 +144,6 @@ describe("🎯 순수 axios 호출 테스트", () => {
       console.log(`💬 첫 댓글: "${댓글목록.data[0].body.substring(0, 50)}..."`);
 
       console.log("\n🎉 순차 호출 테스트 완료!");
-
     } catch (에러) {
       console.log("\n❌ 순차 호출 에러:", 에러.message);
     }
@@ -153,21 +156,21 @@ describe("🎯 순수 axios 호출 테스트", () => {
     try {
       // axios 인스턴스 생성 (기본 설정 포함)
       const API클라이언트 = axios.create({
-        baseURL: 'https://jsonplaceholder.typicode.com',
-        timeout: 5000,  // 5초 타임아웃
+        baseURL: "https://jsonplaceholder.typicode.com",
+        timeout: 5000, // 5초 타임아웃
         headers: {
-          'Content-Type': 'application/json',
-          'User-Agent': 'My-Test-App/1.0'
-        }
+          "Content-Type": "application/json",
+          "User-Agent": "My-Test-App/1.0",
+        },
       });
 
       console.log("⚙️ 사용자 정의 axios 인스턴스 생성 완료");
 
       // 요청 시간 측정
       const 시작시간 = Date.now();
-      
-      const 응답 = await API클라이언트.get('/users/2');
-      
+
+      const 응답 = await API클라이언트.get("/users/2");
+
       const 끝시간 = Date.now();
       const 걸린시간 = 끝시간 - 시작시간;
 
@@ -176,7 +179,6 @@ describe("🎯 순수 axios 호출 테스트", () => {
       console.log("👤 사용자 이름:", 응답.data.name);
 
       console.log("\n🎉 axios 설정 테스트 완료!");
-
     } catch (에러) {
       console.log("\n❌ axios 설정 테스트 에러:", 에러.message);
     }
